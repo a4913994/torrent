@@ -1,0 +1,5 @@
+db:
+  username: root
+  password: admin
+  address: '127.0.0.1:3060'
+  name: 'downloader'
