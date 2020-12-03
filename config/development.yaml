@@ -3,3 +3,5 @@ db:
   password: admin
   address: '127.0.0.1:3060'
   name: 'downloader'
+server:
+  port: ':8000'
