@@ -17,7 +17,7 @@ type User struct {
 }
 
 func (h User) Signup(userPayload forms.UserSignup) uint {
-	db := db.GetDB()
+	d := db.GetDB()
 	user := User{
 		Name:     userPayload.Name,
 		BirthDay: userPayload.BirthDay,
@@ -25,7 +25,7 @@ func (h User) Signup(userPayload forms.UserSignup) uint {
 		PhotoUrl: userPayload.PhotoURL,
 		Active:   true,
 	}
-	result := db.Create(&user)
+	result := d.Create(&user)
 	if result.Error != nil {
 		log.Println(result.Error)
 	}
@@ -33,10 +33,10 @@ func (h User) Signup(userPayload forms.UserSignup) uint {
 }
 
 func (h User) GetByID(id uint) (*User, error) {
-	db := db.GetDB()
+	d := db.GetDB()
 	user := &User{}
 	user.ID = id
-	result := db.First(user)
+	result := d.First(user)
 	if result.Error != nil {
 		log.Println(result.Error)
 	}

@@ -4,5 +4,5 @@ import "downloader/db"
 
 func Init() {
 	d := db.GetDB()
-	d.AutoMigrate(&User{})
+	d.AutoMigrate(&User{}, &Files{}, &Info{})
 }
